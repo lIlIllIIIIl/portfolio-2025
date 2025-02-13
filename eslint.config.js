@@ -1,23 +1,17 @@
 import globals from 'globals'
 import pluginJs from '@eslint/js'
 import pluginVue from 'eslint-plugin-vue'
-import tseslint from 'typescript-eslint'
 
 export default [
   {
     languageOptions: {
       globals: globals.browser,
-      parserOptions: {
-        parser: tseslint.parser,
-      },
     },
   },
   pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
   ...pluginVue.configs['flat/essential'],
   {
     rules: {
-      '@typescript-eslint/no-explicit-any': 'off',
       'vue/no-unused-vars': 'warn',
       'no-undef': 0,
       // 'no-useless-assignment': 'warn',

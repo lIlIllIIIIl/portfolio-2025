@@ -1,7 +1,5 @@
 <script setup>
 const props = defineProps(['interest', 'focus', 'index'])
-
-onMounted(() => {})
 </script>
 
 <template>

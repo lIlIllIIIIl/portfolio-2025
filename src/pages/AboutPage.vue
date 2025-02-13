@@ -29,6 +29,7 @@ function colEnter(col) {
 
       <div
         v-for="column in 8"
+        :key="column"
         class="col"
         @mouseenter="colEnter(column)"
         @mouseleave="[(focused = null), (currentCol = '00')]"
