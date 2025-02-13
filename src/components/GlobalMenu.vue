@@ -2,6 +2,8 @@
 import { RouterLink } from 'vue-router'
 
 import BurgerIcon from './icons/BurgerIcon.vue'
+import Github from '@/assets/icons/Github.vue'
+import Linkedin from '@/assets/icons/Linkedin.vue'
 
 const menuIsOpen = ref(false)
 
@@ -21,15 +23,15 @@ function toggleMenu() {
 
       <div v-if="menuIsOpen" class="menu-links-container">
         <h3 class="menu-link">
-          <RouterLink to="/about">About</RouterLink>
+          <RouterLink to="/old/about">About</RouterLink>
         </h3>
 
         <h3 class="menu-link">
-          <RouterLink to="/work">Work</RouterLink>
+          <RouterLink to="/old/work">Work</RouterLink>
         </h3>
 
         <h3 class="menu-link">
-          <RouterLink to="/contact">Contact</RouterLink>
+          <RouterLink to="/old/contact">Contact</RouterLink>
         </h3>
       </div>
     </div>
@@ -41,8 +43,11 @@ function toggleMenu() {
       </div>
 
       <div class="socials">
-        <h6>FIND ME ON</h6>
-        <div>TWT GIT</div>
+        <h6>FIND ME ON:</h6>
+        <div class="socials-icons">
+          <Github />
+          <Linkedin />
+        </div>
       </div>
     </div>
   </div>
@@ -141,9 +146,17 @@ function toggleMenu() {
     //
     padding: 16px;
 
-    div {
+    .designer,
+    .socials {
       display: flex;
       flex-direction: column;
+
+      .socials-icons {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 8px;
+      }
     }
   }
 }

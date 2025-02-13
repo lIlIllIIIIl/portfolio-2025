@@ -1,0 +1,42 @@
+{
+    "trip": {
+        "title": "Trip",
+        "desc": "lorem ipsum sit data met",
+        "image": "trip"
+    },
+    "ski": {
+        "title": "Winter",
+        "desc": "lorem ipsum sit data met",
+        "image": "winter"
+    },
+    "manga": {
+        "title": "Mangas",
+        "desc": "lorem ipsum sit data met",
+        "image": "manga"
+    },
+    "book": {
+        "title": "Books",
+        "desc": "lorem ipsum sit data met",
+        "image": "book"
+    },
+    "food": {
+        "title": "Food",
+        "desc": "lorem ipsum sit data met",
+        "image": "food"
+    },
+    "music": {
+        "title": "Music",
+        "desc": "lorem ipsum sit data met",
+        "image": "music"
+    },
+    "games": {
+        "title": "Video games",
+        "desc": "lorem ipsum sit data met",
+        "image": "games"
+    },
+    "friends": {
+        "title": "Friends",
+        "desc": "lorem ipsum sit data met",
+        "image": "friends"
+    }
+}

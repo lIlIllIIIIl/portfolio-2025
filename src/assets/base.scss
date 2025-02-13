@@ -82,9 +82,21 @@ a {
 	src: url("./fonts/PPEditorialNew-Ultralight.woff2")
 }
 
+// p, span, div {
+//   font-size: 15px;
+// }
+
 h1 {
   font-family: EditorialNew;
   font-size: 70px;
+  line-height: 80px;
+  letter-spacing: -3px;
+
+  .word {
+    overflow: hidden;
+    line-height: 80px;
+    letter-spacing: -3px;
+  }
 }
 
 h3 {
@@ -99,8 +111,4 @@ h5 {
 
 h6 {
   font-size: 13px;
-}
-
-p, span, div {
-  font-size: 15px;
 }
