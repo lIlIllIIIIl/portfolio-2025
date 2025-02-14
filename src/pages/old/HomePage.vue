@@ -1,7 +1,7 @@
 <script setup>
 import Arrow from '@/assets/icons/Arrow.vue'
 
-import { titleAnimation, paragraphAnimation } from '@/computed/textAnimation'
+import { titleAnimation, paragraphAnimation } from '@/composable/textAnimation'
 
 onMounted(() => {
   const title = document.querySelector('.title')

@@ -9,10 +9,10 @@ import OldWorkPage from '@/pages/old/WorkPage.vue'
 import OldContactPage from '@/pages/old/ContactPage.vue'
 
 const routes = [
-  { path: '/', component: HomePage },
-  { path: '/about', component: AboutPage },
-  // { path: '/work', component: WorkPage },
-  // { path: '/contact', component: ContactPage },
+  { name: 'home', path: '/', component: HomePage },
+  { name: 'about', path: '/about', component: AboutPage },
+  // { name: 'work', path: '/work', component: WorkPage },
+  // { name: 'contact', path: '/contact', component: ContactPage },
   // old
   { path: '/old', component: OldHomePage },
   { path: '/old/about', component: OldAboutPage },
