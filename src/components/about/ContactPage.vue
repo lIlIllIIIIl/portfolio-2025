@@ -2,7 +2,7 @@
 
 <template>
   <section class="contact-container">
-    <div>here</div>
+    <!-- <div>here</div> -->
   </section>
 </template>
 

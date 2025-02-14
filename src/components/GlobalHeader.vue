@@ -19,6 +19,7 @@ header {
   flex-direction: row;
   align-items: center;
   gap: 120px;
+  padding: 4vw;
 
   img {
     max-width: 22px;

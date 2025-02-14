@@ -2,7 +2,7 @@
 
 <template>
   <section class="experiences-container">
-    <div>here</div>
+    <!-- <div>here</div> -->
   </section>
 </template>
 

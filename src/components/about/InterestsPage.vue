@@ -70,7 +70,7 @@ function colEnter(col) {
     //
     height: -webkit-fill-available;
     padding: 16px;
-    margin: 0 40px;
+    margin: 0 120px;
     overflow: scroll;
 
     .grid-column {
