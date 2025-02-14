@@ -3,6 +3,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
+import Cursor from './components/atoms/Cursor.vue'
 import GlobalHeader from './components/GlobalHeader.vue'
 import GlobalMenu from './components/GlobalMenu.vue'
 import GlobalIndex from './components/GlobalIndex.vue'
@@ -18,6 +19,7 @@ manageMenu()
 </script>
 
 <template>
+  <Cursor />
   <div v-if="showOld" class="page-container--old">
     <header>
       <RouterLink to="/old/">
@@ -46,8 +48,9 @@ manageMenu()
 <style lang="scss">
 .page-container {
   height: 100vh;
-  padding: 4vw;
+  //
   overflow: hidden;
+  cursor: none;
 
   header {
     width: 100%;
