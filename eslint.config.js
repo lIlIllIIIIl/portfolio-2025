@@ -76,7 +76,7 @@ export default [
       //   'memberSyntaxSortOrder': ['none', 'all', 'multiple', 'single'],
       //   'allowSeparatedGroups': true
       // }],
-      indent: ['error', 2],
+      indent: ['error', 2, { SwitchCase: 1 }],
     },
   },
 ]
