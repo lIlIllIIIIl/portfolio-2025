@@ -34,9 +34,9 @@
         "desc": "lorem ipsum sit data met",
         "image": "games"
     },
-    "friends": {
-        "title": "Friends",
+    "photos": {
+        "title": "Photos",
         "desc": "lorem ipsum sit data met",
-        "image": "friends"
+        "image": "photos"
     }
 }
