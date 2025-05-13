@@ -10,24 +10,37 @@ const currentFocus = ref(null)
 
 function focusInterest(interest) {
   const aboutContainer = document.querySelector('.about-container')
-
   const aboutFocus = document.querySelector('.about-focus')
-
-  currentFocus.value = interest
-
-  Splitting()
 
   const tl = gsap.timeline()
 
-  tl.to(aboutContainer, {
-    display: 'none',
-    duration: 0,
-  })
+  if (interest) {
+    currentFocus.value = interest
 
-  tl.to(aboutFocus, {
-    display: 'flex',
-    duration: 0,
-  })
+    Splitting()
+
+    tl.to(aboutContainer, {
+      display: 'none',
+      duration: 0,
+    })
+
+    tl.to(aboutFocus, {
+      display: 'flex',
+      duration: 0,
+    })
+  } else {
+    currentFocus.value = null
+
+    tl.to(aboutContainer, {
+      display: 'flex',
+      duration: 0,
+    })
+
+    tl.to(aboutFocus, {
+      display: 'none',
+      duration: 0,
+    })
+  }
 }
 </script>
 
@@ -45,7 +58,8 @@ function focusInterest(interest) {
     </div>
   </div>
 
-  <AboutFocus :focus="currentFocus ?? oldInterests.ski" />
+  <AboutFocus :focus="currentFocus" @changeFocus="focusInterest" />
+  <!-- <AboutFocus :focus="currentFocus ?? oldInterests.ski" @changeFocus="focusInterest" /> -->
 </template>
 
 <style lang="scss" scoped>
@@ -53,6 +67,7 @@ function focusInterest(interest) {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-top: 16vh;
   gap: 24px;
 
   .interests-container {
@@ -61,6 +76,7 @@ function focusInterest(interest) {
     align-items: center;
     flex-wrap: wrap;
     gap: 8px;
+    margin-right: 8px;
 
     img {
       max-height: 120px;
@@ -70,5 +86,7 @@ function focusInterest(interest) {
 
 .about-focus {
   display: none;
+
+  margin-top: 8vh;
 }
 </style>
