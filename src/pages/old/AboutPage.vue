@@ -9,16 +9,34 @@ import Splitting from 'splitting'
 const currentFocus = ref(null)
 
 function focusInterest(interest) {
+  //
   const aboutContainer = document.querySelector('.about-container')
+  const aboutTitle = document.querySelector('.about-container h1')
+  const aboutInterestsContainer = document.querySelector('.about-container .interests-container')
+  const aboutInterests = document.querySelectorAll('.about-container .interests-container img')
+
   const aboutFocus = document.querySelector('.about-focus')
 
   const tl = gsap.timeline()
 
   if (interest) {
-    currentFocus.value = interest
-
     Splitting()
 
+    tl.to(aboutTitle, {
+      opacity: 0,
+      y: '-200px',
+      duration: 0.4,
+    })
+
+    tl.to(aboutInterests, {
+      opacity: 0,
+      y: '-200px',
+      duration: 0.4,
+      stagger: 0.06,
+      onComplete: () => {
+        currentFocus.value = interest
+      },
+    })
     tl.to(aboutContainer, {
       display: 'none',
       duration: 0,
@@ -28,17 +46,31 @@ function focusInterest(interest) {
       display: 'flex',
       duration: 0,
     })
-  } else {
+  }
+  // if cross is clicked
+  else {
     currentFocus.value = null
-
     tl.to(aboutContainer, {
       display: 'flex',
       duration: 0,
     })
 
-    tl.to(aboutFocus, {
-      display: 'none',
-      duration: 0,
+    tl.to(aboutTitle, {
+      opacity: 1,
+      y: '0px',
+      duration: 0.4,
+    })
+    tl.to(aboutInterests, {
+      opacity: 1,
+      y: '0px',
+      stagger: 0.06,
+      duration: 0.4,
+      onComplete: () => {
+        tl.to(aboutFocus, {
+          display: 'none',
+          duration: 0,
+        })
+      },
     })
   }
 }
