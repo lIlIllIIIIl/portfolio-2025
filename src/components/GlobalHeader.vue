@@ -11,11 +11,11 @@
         <span>]</span>
       </RouterLink>
 
-      <RouterLink to="/about">
+      <!-- <RouterLink to="/about">
         <span>[</span>
         <span class="header-text">About</span>
         <span>]</span>
-      </RouterLink>
+      </RouterLink> -->
     </div>
   </header>
 </template>
