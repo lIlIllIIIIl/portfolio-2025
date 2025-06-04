@@ -5,9 +5,17 @@
     <img class="header-icon" src="@/assets/images/exclude.png" />
 
     <div class="header-links">
-      <RouterLink to="/">[Index] </RouterLink>
+      <RouterLink to="/">
+        <span>[</span>
+        <span class="header-text">Index</span>
+        <span>]</span>
+      </RouterLink>
 
-      <RouterLink to="/about"> [About] </RouterLink>
+      <RouterLink to="/about">
+        <span>[</span>
+        <span class="header-text">About</span>
+        <span>]</span>
+      </RouterLink>
     </div>
   </header>
 </template>
@@ -35,6 +43,10 @@ header {
 
       &.router-link-active {
         color: white;
+      }
+
+      .header-text {
+        margin: 0 50px 0 8px;
       }
     }
   }
