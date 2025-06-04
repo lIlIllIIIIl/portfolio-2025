@@ -2,6 +2,10 @@
 import InterestsPage from '@/components/about/InterestsPage.vue'
 import ExperiencesPage from '@/components/about/ExperiencesPage.vue'
 import ContactPage from '@/components/about/ContactPage.vue'
+
+import { manageMenu } from '../composable/manageMenu'
+
+manageMenu()
 </script>
 
 <template>

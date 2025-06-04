@@ -37,7 +37,7 @@ const props = defineProps(['delay'])
 svg {
   margin: 20px 20px;
   line {
-    stroke: var(--color-text);
+    stroke: #9f9f9f;
   }
 
   .arrow-body {

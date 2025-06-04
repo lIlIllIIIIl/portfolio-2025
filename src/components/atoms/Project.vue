@@ -1,18 +1,16 @@
 <script setup>
-const props = defineProps(['interest', 'focus', 'index'])
+const props = defineProps(['project', 'focus', 'index'])
 </script>
 
 <template>
-  <div class="interest-container">
-    <div class="img-container">
-      <img v-if="props.focus" :src="`src/assets/images/interests/${props.interest.image}.jpg`" />
-    </div>
-    <span v-if="props.focus">{{ props.interest.title }}</span>
+  <div class="project-container">
+    <img class="img-container" />
+    <span>{{ props.project.title }}</span>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.interest-container {
+.project-container {
   display: flex;
   flex-direction: column;
 

@@ -1,27 +1,28 @@
 <script setup>
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
 gsap.registerPlugin(ScrollTrigger)
+
+import { useRoute } from 'vue-router'
 
 import Cursor from './components/atoms/Cursor.vue'
 import GlobalHeader from './components/GlobalHeader.vue'
 import GlobalMenu from './components/GlobalMenu.vue'
 import GlobalIndex from './components/GlobalIndex.vue'
 
-import { manageMenu } from './composable/manageMenu'
-
 // OLD
 import GlobalMenuOld from './components/old/GlobalMenu.vue'
 
 const showOld = ref(window.location.href.includes('old'))
-
-manageMenu()
+const route = useRoute()
 </script>
 
 <template>
   <Cursor />
+
   <div v-if="showOld" class="page-container--old">
-    <header>
+    <header :style="route.name === 'oldWork' || route.name === 'oldProject' ? 'border: none' : ''">
       <RouterLink to="/old/">
         <img class="header-icon" src="@/assets/images/exclude.png" />
       </RouterLink>
@@ -50,7 +51,7 @@ manageMenu()
   height: 100vh;
   //
   overflow: hidden;
-  cursor: none;
+  // cursor: none;
 
   header {
     width: 100%;
@@ -71,8 +72,13 @@ manageMenu()
 }
 
 .page-container--old {
-  padding-left: 5vw;
-  margin-right: 15vw;
+  height: 100vh;
+
+  margin-left: 5vw;
+  margin-right: 20vw;
+  padding-top: 5vh;
+
+  overflow-y: hidden;
 
   header {
     width: 100%;
