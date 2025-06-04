@@ -1,32 +1,32 @@
 {
     "ski": {
       "title": "Winter",
-      "desc": "lorem ipsum sit data met",
+      "desc": "J'aime l'hiver parce que ça veut dire aller à la montagne et faire du snowboard avec mes amis ou ma famille.",
       "image": "winter"
     },
     "manga": {
       "title": "Mangas",
-      "desc": "lorem ipsum sit data met",
+      "desc": "Depuis tout petit, j'ai toujours consommé beaucoup de mangas. J'ai grandi avec et je suis content de continuer à découvrir de nouvelles oeuvres.",
       "image": "manga"
     },
     "book": {
       "title": "Books",
-      "desc": "lorem ipsum sit data met",
+      "desc": "J'essaie de lire depuis plusieurs années et je me suis découvert une passion pour les thriller.",
       "image": "book"
     },
     "food": {
       "title": "Food",
-      "desc": "lorem ipsum sit data met",
+      "desc": "La nourriture c'est bon.",
       "image": "food"
     },
     "music": {
       "title": "Music",
-      "desc": "lorem ipsum sit data met",
+      "desc": "J'écoute toujours de la musique. Dans les transports en commun, en travaillant, en mangeant mon petit déjeuner. La musique m'accompagne toujours.",
       "image": "music"
     },
     "games": {
       "title": "Video games",
-      "desc": "lorem ipsum sit data met",
+      "desc": "Les jeux-vidéos font partie intégrante de ma vie. J'ai vécu des expériences inoubliables grâce à eux.",
       "image": "games"
     }
   }

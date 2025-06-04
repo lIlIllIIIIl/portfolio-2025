@@ -6,6 +6,7 @@ import AboutPage from '@/pages/AboutPage.vue'
 import OldHomePage from '@/pages/old/HomePage.vue'
 import OldAboutPage from '@/pages/old/AboutPage.vue'
 import OldWorkPage from '@/pages/old/WorkPage.vue'
+import OldProjectPage from '@/pages/old/ProjectPage.vue'
 import OldContactPage from '@/pages/old/ContactPage.vue'
 
 const routes = [
@@ -16,7 +17,8 @@ const routes = [
   // old
   { path: '/old', component: OldHomePage },
   { path: '/old/about', component: OldAboutPage },
-  { path: '/old/work', component: OldWorkPage },
+  { name: 'oldWork', path: '/old/work', component: OldWorkPage },
+  { name: 'oldProject', path: '/old/project', component: OldProjectPage, props: true },
   { path: '/old/contact', component: OldContactPage },
 ]
 

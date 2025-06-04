@@ -60,7 +60,7 @@ function toggleMenu() {
   right: 0;
   border-left: 1px solid white;
   background: var(--color-background);
-  z-index: 10;
+  z-index: 10000;
   //
   display: flex;
   flex-direction: column;

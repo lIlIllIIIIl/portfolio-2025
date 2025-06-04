@@ -1,0 +1,68 @@
+[
+    {
+        "id": "uso",
+        "title": "USO",
+        "date": "december 2021 (1st part)",
+        "role": "fullstack developer",
+        "team": "Jaël Beining",
+        "desc": "Osu is an online rhythmic game based on already existing musics. USO allows the users to synchronize both your Osu and Spotify accounts, so that you can enhance your playlists with Osu’s musics.",
+        "image": "uso",
+        "link": "",
+        "size": "7"
+    },
+    {
+        "id": "artchive",
+        "title": "Artchive",
+        "date": "december 2021 (1st part)",
+        "role": "fullstack developer",
+        "team": "",
+        "desc": "lorem ipsum sit data met",
+        "image": "artchive",
+        "link": "",
+        "size": "7"
+    },
+    {
+        "id": "pimpim",
+        "title": "PimPim's adventure",
+        "date": "december 2021 (1st part)",
+        "role": "fullstack developer",
+        "team": "",
+        "desc": "lorem ipsum sit data met",
+        "image": "pimpim",
+        "link": "",
+        "size": "7"
+    },
+    {
+        "id": "cf",
+        "title": "Cf.doc",
+        "date": "december 2021 (1st part)",
+        "role": "fullstack developer",
+        "team": "",
+        "desc": "lorem ipsum sit data met",
+        "image": "cf",
+        "link": "",
+        "size": "7"
+    },
+    {
+        "id": "aurora",
+        "title": "Aurora",
+        "date": "december 2021 (1st part)",
+        "role": "fullstack developer",
+        "team": "",
+        "desc": "lorem ipsum sit data met",
+        "image": "aurora",
+        "link": "",
+        "size": "7"
+    },
+    {
+        "id": "ines",
+        "title": "Inès' portfolio",
+        "date": "december 2021 (1st part)",
+        "role": "fullstack developer",
+        "team": "",
+        "desc": "lorem ipsum sit data met",
+        "image": "ines",
+        "link": "",
+        "size": "7"
+    }
+]
