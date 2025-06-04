@@ -12,8 +12,8 @@ function titleAnimation(title) {
 
   const chars = titleSplit[0]['chars']
 
-  chars.forEach((char, id) => {
-    let charIndex = getComputedStyle(char).getPropertyValue('--char-index')
+  chars.forEach((char) => {
+    const charIndex = getComputedStyle(char).getPropertyValue('--char-index')
     gsap
       .timeline()
       .set(char, {
@@ -39,10 +39,10 @@ function paragraphAnimation(paragraph) {
 
   const words = paragraphSplit[0]['words']
 
-  let len = paragraphSplit[0]['lines'].length
+  const len = paragraphSplit[0]['lines'].length
 
   words.forEach((word) => {
-    let lineNum = getComputedStyle(word).getPropertyValue('--line-index')
+    const lineNum = getComputedStyle(word).getPropertyValue('--line-index')
     gsap
       .timeline()
       .set(

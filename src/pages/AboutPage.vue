@@ -1,80 +1,45 @@
 <script setup>
-import Interest from '@/components/Interest.vue'
-import interests from '@/store/interests.json'
+import InterestsPage from '@/components/about/InterestsPage.vue'
+import ExperiencesPage from '@/components/about/ExperiencesPage.vue'
+import ContactPage from '@/components/about/ContactPage.vue'
 
-const focused = ref(null)
-const interestsTitle = Object.keys(interests)
-const currentCol = ref('00')
+import { manageMenu } from '../composable/manageMenu'
 
-function colEnter(col) {
-  currentCol.value = `0${col}`
-  focused.value = interests[interestsTitle[col - 1]]
-}
+manageMenu()
 </script>
 
 <template>
-  <div class="about-container">
-    <span class="page-title">Interests</span>
+  <section class="about-intro" data="intro">
+    <p>
+      I'm Alexis Kessab, a fullstack developer, currently traveling the world while working
+      freelance.
+    </p>
 
-    <div class="grid-container">
-      <Interest
-        v-for="(interest, key) in interests"
-        :key="interest.title"
-        :index="key"
-        :interest="interest"
-        :focus="focused?.title === interest.title"
-        @mouseenter="focused = interest"
-        @mouseleave="focused = null"
-      />
+    <span> Available starting May 2025</span>
+  </section>
 
-      <div
-        v-for="column in 8"
-        :key="column"
-        class="col"
-        @mouseenter="colEnter(column)"
-        @mouseleave="[(focused = null), (currentCol = '00')]"
-      />
-    </div>
+  <InterestsPage />
 
-    <div class="interest-num">
-      [&nbsp;&nbsp;{{
-        currentCol
-      }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
-    </div>
-  </div>
+  <ExperiencesPage />
+
+  <ContactPage />
 </template>
 
 <style lang="scss" scoped>
-.about-container {
+.about-intro {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  .page-title,
-  .interest-num {
-    height: 105px;
-    display: flex;
-    align-items: center;
+  p,
+  span {
+    width: 220px;
   }
 
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(8, 105px);
-    grid-template-rows: 105px 1fr;
-    gap: 0px 0px;
-    overflow: scroll;
-    padding: 16px;
-    margin: 0 40px;
-
-    .grid-column {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .col {
-      height: 100%;
-    }
+  p {
+    font-size: 16px;
+    color: white;
   }
 }
 </style>
