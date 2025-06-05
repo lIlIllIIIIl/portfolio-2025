@@ -260,6 +260,7 @@ watch(
     gap: 8px;
 
     img {
+      transition-duration: 0.4s;
       max-height: 120px;
       opacity: 0.4;
 
@@ -268,6 +269,7 @@ watch(
       }
 
       &:hover {
+        transition-duration: 0s;
         opacity: 1;
       }
     }

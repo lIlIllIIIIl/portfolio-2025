@@ -2,11 +2,32 @@
 import AboutFocus from '@/components/old/AboutFocus.vue'
 import oldInterests from '@/store/oldInterests'
 
+import { titleAnimation } from '@/composable/textAnimation'
+
 import { gsap } from 'gsap'
 
 import Splitting from 'splitting'
 
 const currentFocus = ref(null)
+
+onMounted(() => {
+  const title = document.querySelector('.title')
+  titleAnimation(title)
+
+  const aboutInterests = document.querySelectorAll('.about-container .interests-container img')
+
+  gsap.set(aboutInterests, {
+    opacity: 0,
+    y: '200px',
+  })
+
+  gsap.to(aboutInterests, {
+    opacity: 1,
+    y: '0px',
+    stagger: 0.06,
+    duration: 0.4,
+  })
+})
 
 function focusInterest(interest) {
   //
@@ -78,7 +99,7 @@ function focusInterest(interest) {
 
 <template>
   <div class="about-container">
-    <h1>About me?</h1>
+    <h1 class="title">About me?</h1>
 
     <div class="interests-container">
       <img
