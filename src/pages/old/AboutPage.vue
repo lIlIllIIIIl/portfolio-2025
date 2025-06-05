@@ -12,7 +12,7 @@ function focusInterest(interest) {
   //
   const aboutContainer = document.querySelector('.about-container')
   const aboutTitle = document.querySelector('.about-container h1')
-  const aboutInterestsContainer = document.querySelector('.about-container .interests-container')
+  // const aboutInterestsContainer = document.querySelector('.about-container .interests-container')
   const aboutInterests = document.querySelectorAll('.about-container .interests-container img')
 
   const aboutFocus = document.querySelector('.about-focus')
@@ -84,7 +84,7 @@ function focusInterest(interest) {
       <img
         v-for="interest in oldInterests"
         :key="interest.title"
-        :src="`/src/assets/images/interests/${interest.image}.jpg`"
+        :src="`/assets/images/interests/${interest.image}.jpg`"
         @click="focusInterest(interest)"
       />
     </div>

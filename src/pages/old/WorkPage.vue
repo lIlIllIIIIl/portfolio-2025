@@ -53,7 +53,7 @@ onBeforeUnmount(() => {
       data-scroll
       data-scroll-section
     >
-      <img :src="`/src/assets/images/projects/${project.image}/cover.jpg`" class="fade-up" />
+      <img :src="`/assets/images/projects/${project.image}/cover.jpg`" class="fade-up" />
 
       <RouterLink
         class="fade-up"

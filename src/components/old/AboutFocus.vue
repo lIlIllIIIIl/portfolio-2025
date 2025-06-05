@@ -158,7 +158,7 @@ watch(
           v-for="interest in oldInterests"
           class="focus-image"
           :key="interest.title"
-          :src="`/src/assets/images/interests/${interest.image}.jpg`"
+          :src="`/assets/images/interests/${interest.image}.jpg`"
           :class="focus?.title === interest.title ? '--current' : '--hidden'"
         />
       </div>
@@ -173,7 +173,7 @@ watch(
             v-for="interest in oldInterests"
             :class="currentTitle === interest.title ? '--current' : ''"
             :key="interest.title"
-            :src="`/src/assets/images/interests/${interest.image}.jpg`"
+            :src="`/assets/images/interests/${interest.image}.jpg`"
             @click="changeFocus(interest)"
           />
         </div>
@@ -185,7 +185,7 @@ watch(
         v-for="interest in oldInterests"
         :class="currentTitle === interest.title ? '--current' : ''"
         :key="interest.title"
-        :src="`/src/assets/images/interests/${interest.image}.jpg`"
+        :src="`/assets/images/interests/${interest.image}.jpg`"
         @click="changeFocus(interest)"
       />
     </div>

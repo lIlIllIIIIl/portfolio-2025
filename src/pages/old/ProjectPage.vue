@@ -170,7 +170,7 @@ onBeforeUnmount(() => {
           v-for="i in 7"
           :key="i"
           class="project-image"
-          :src="`/src/assets/images/projects/${projectData.image}/${i}.jpg`"
+          :src="`/assets/images/projects/${projectData.image}/${i}.jpg`"
         />
 
         <div class="project-next">
