@@ -51,7 +51,6 @@ const route = useRoute()
   height: 100vh;
   //
   overflow: hidden;
-  // cursor: none;
 
   header {
     width: 100%;
