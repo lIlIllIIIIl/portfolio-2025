@@ -151,7 +151,7 @@ onBeforeUnmount(() => {
         {{ projectData.title }}
       </h1>
 
-      <a>VISIT WEBSITE</a>
+      <a v-if="projectData.link" :href="projectData.link">VISIT WEBSITE</a>
 
       <div class="project-details">
         <span>COMPLETED: {{ projectData.date }}</span>
@@ -245,6 +245,7 @@ body {
   .project-scroll-wrapper {
     position: relative;
     height: 100%;
+    min-height: 100%;
     width: 100%;
     z-index: 200;
 

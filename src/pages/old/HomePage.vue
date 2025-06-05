@@ -23,7 +23,7 @@ onMounted(() => {
 
     <div class="homepage-description">
       <p class="paragraph">
-        Somewhere <span class="important">around the world</span>, available for
+        Currently somewhere <span class="important">around the world</span>, I'm still available for
         <span class="important">remote freelance</span>
         missions.
       </p>
