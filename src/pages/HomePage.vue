@@ -11,7 +11,7 @@
     </div> -->
     <div class="homepage-building">
       <span>Hey! This portfolio is not finished yet.</span>
-      <a href="/old/">You can take a look at my old folio by clicking here</a>
+      <a href="/old/">You can take a look at the old version of my portfolio by clicking here</a>
     </div>
   </section>
 </template>
