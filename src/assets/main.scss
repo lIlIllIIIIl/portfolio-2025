@@ -13,3 +13,20 @@
 @media (min-width: 1024px) {
 
 }
+
+.hidden {
+  opacity: 0;
+}
+
+.fade-page-enter-active,
+.fade-page-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-page-enter-from,
+.fade-page-leave-to {
+  opacity: 0;
+}
+.fade-page-enter-to,
+.fade-page-leave-from {
+  opacity: 1;
+}

@@ -1,9 +1,9 @@
 <script setup>
+import { gsap } from 'gsap'
+
 import oldInterests from '@/store/oldInterests'
 
 import Cross from '@/assets/icons/Cross.vue'
-
-import { gsap } from 'gsap'
 
 const emit = defineEmits(['changeFocus'])
 const props = defineProps(['focus'])

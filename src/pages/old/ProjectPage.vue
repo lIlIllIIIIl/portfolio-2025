@@ -1,11 +1,11 @@
 <script setup>
+import { gsap } from 'gsap'
+import LocomotiveScroll from 'locomotive-scroll'
+import 'locomotive-scroll/dist/locomotive-scroll.css'
+
 import { useRoute } from 'vue-router'
 
 import Arrow from '@/assets/icons/Arrow.vue'
-
-import LocomotiveScroll from 'locomotive-scroll'
-import 'locomotive-scroll/dist/locomotive-scroll.css'
-import { gsap } from 'gsap'
 
 import projects from '@/store/projects.json'
 
@@ -293,7 +293,6 @@ body {
       height: 100%;
       width: max-content;
       z-index: 10;
-      // margin-left: 48vw;
 
       .project-image {
         height: 100%;

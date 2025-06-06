@@ -56,7 +56,6 @@ const route = useRoute()
 <style lang="scss">
 .page-container {
   height: 100vh;
-  //
   overflow: hidden;
 
   header {
@@ -99,18 +98,5 @@ const route = useRoute()
       }
     }
   }
-}
-
-.fade-page-enter-active,
-.fade-page-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-page-enter-from,
-.fade-page-leave-to {
-  opacity: 0;
-}
-.fade-page-enter-to,
-.fade-page-leave-from {
-  opacity: 1;
 }
 </style>

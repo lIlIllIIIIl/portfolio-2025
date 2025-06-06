@@ -42,12 +42,9 @@ function onImageLoad() {
 }
 
 function focusInterest(interest) {
-  //
   const aboutContainer = document.querySelector('.about-container')
   const aboutTitle = document.querySelector('.about-container h1')
-  // const aboutInterestsContainer = document.querySelector('.about-container .interests-container')
   const aboutInterests = document.querySelectorAll('.about-container .interests-container img')
-
   const aboutFocus = document.querySelector('.about-focus')
 
   const tl = gsap.timeline()
@@ -126,7 +123,6 @@ function focusInterest(interest) {
     </div>
 
     <AboutFocus :focus="currentFocus" @changeFocus="focusInterest" />
-    <!-- <AboutFocus :focus="currentFocus ?? oldInterests.ski" @changeFocus="focusInterest" /> -->
   </div>
 </template>
 
