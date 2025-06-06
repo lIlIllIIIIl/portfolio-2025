@@ -48,7 +48,7 @@ onUnmounted(() => {
     <div class="contact-mail">
       <span
         @mouseenter="showCopy = true"
-        @mouseleave="showCopy"
+        @mouseleave="showCopy = false"
         class="contact-copy"
         :class="showCopy ? 'show' : 'hide'"
         :style="{ top: mouseY + 'px', left: mouseX + 'px' }"
