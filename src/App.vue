@@ -28,7 +28,14 @@ const route = useRoute()
       </RouterLink>
     </header>
 
-    <RouterView />
+    <Transition
+      name="fade-page"
+      mode="out-in"
+      @after-enter="handleAfterEnter"
+      @before-leave="handleBeforeLeave"
+    >
+      <RouterView />
+    </Transition>
 
     <GlobalMenuOld />
   </div>
@@ -92,5 +99,18 @@ const route = useRoute()
       }
     }
   }
+}
+
+.fade-page-enter-active,
+.fade-page-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-page-enter-from,
+.fade-page-leave-to {
+  opacity: 0;
+}
+.fade-page-enter-to,
+.fade-page-leave-from {
+  opacity: 1;
 }
 </style>

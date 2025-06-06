@@ -10,7 +10,10 @@ import Splitting from 'splitting'
 
 const currentFocus = ref(null)
 
-onMounted(() => {
+const isAllImagesLoaded = ref(false)
+const loadedImagesCount = ref(0)
+
+function launchAnimations() {
   const title = document.querySelector('.title')
   titleAnimation(title)
 
@@ -27,7 +30,16 @@ onMounted(() => {
     stagger: 0.06,
     duration: 0.4,
   })
-})
+}
+
+function onImageLoad() {
+  loadedImagesCount.value++
+
+  if (loadedImagesCount.value === Object.keys(oldInterests).length) {
+    isAllImagesLoaded.value = true
+    launchAnimations()
+  }
+}
 
 function focusInterest(interest) {
   //
@@ -98,21 +110,24 @@ function focusInterest(interest) {
 </script>
 
 <template>
-  <div class="about-container">
-    <h1 class="title">About me?</h1>
+  <div class="aboutpage" :class="{ hidden: !isAllImagesLoaded }">
+    <div class="about-container">
+      <h1 class="title">About me?</h1>
 
-    <div class="interests-container">
-      <img
-        v-for="interest in oldInterests"
-        :key="interest.title"
-        :src="`/assets/images/interests/${interest.image}.jpg`"
-        @click="focusInterest(interest)"
-      />
+      <div class="interests-container">
+        <img
+          v-for="interest in oldInterests"
+          :key="interest.title"
+          :src="`/assets/images/interests/${interest.image}.jpg`"
+          @load="onImageLoad"
+          @click="focusInterest(interest)"
+        />
+      </div>
     </div>
-  </div>
 
-  <AboutFocus :focus="currentFocus" @changeFocus="focusInterest" />
-  <!-- <AboutFocus :focus="currentFocus ?? oldInterests.ski" @changeFocus="focusInterest" /> -->
+    <AboutFocus :focus="currentFocus" @changeFocus="focusInterest" />
+    <!-- <AboutFocus :focus="currentFocus ?? oldInterests.ski" @changeFocus="focusInterest" /> -->
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -141,5 +156,9 @@ function focusInterest(interest) {
   display: none;
 
   margin-top: 8vh;
+}
+
+.hidden {
+  opacity: 0;
 }
 </style>
