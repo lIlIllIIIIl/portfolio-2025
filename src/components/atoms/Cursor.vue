@@ -69,5 +69,9 @@ onMounted(() => {
   pointer-events: none;
   // background: white;
   // scale: 1;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
 }
 </style>

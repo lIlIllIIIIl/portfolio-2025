@@ -29,6 +29,10 @@ header {
   gap: 120px;
   padding: 4vw;
 
+  @media (max-width: 1024px) {
+    width: 100vw;
+  }
+
   img {
     max-width: 22px;
     max-height: 22px;

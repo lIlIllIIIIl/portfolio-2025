@@ -36,7 +36,7 @@ function toggleMenu() {
       </div>
     </div>
 
-    <div class="menu-footer">
+    <div v-if="menuIsOpen" class="menu-footer">
       <div class="designer">
         <h6>DESIGNED BY:</h6>
         <h6>INÈS RICHARD</h6>
@@ -74,6 +74,10 @@ function toggleMenu() {
 
   &.open {
     width: 26vw;
+
+    @media (max-width: 1024px) {
+      width: 46vw;
+    }
   }
 
   .menu-top {
@@ -97,6 +101,12 @@ function toggleMenu() {
 
       &:hover {
         cursor: pointer;
+      }
+
+      @media (max-width: 1024px) {
+        span {
+          display: none;
+        }
       }
     }
 
@@ -156,6 +166,10 @@ function toggleMenu() {
         flex-direction: row;
         justify-content: flex-end;
         gap: 8px;
+
+        @media (max-width: 1024px) {
+          justify-content: flex-start;
+        }
       }
     }
   }

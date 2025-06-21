@@ -40,6 +40,12 @@
     align-items: center;
     gap: 0.4vh;
 
+    @media (max-width: 1024px) {
+      a {
+        text-align: center;
+      }
+    }
+
     a {
       &:hover {
         color: white;

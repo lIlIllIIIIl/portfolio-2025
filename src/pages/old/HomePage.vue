@@ -41,6 +41,10 @@ onMounted(() => {
   .homepage-title {
     margin-top: 18vh;
 
+    @media (max-width: 1024px) {
+      margin-top: 6vh;
+    }
+
     h1 {
       display: inline;
     }
@@ -50,6 +54,10 @@ onMounted(() => {
     max-width: 34vw;
     color: white;
     text-transform: uppercase;
+
+    @media (max-width: 1024px) {
+      max-width: 60vw;
+    }
 
     .important {
       color: var(--color-text);
