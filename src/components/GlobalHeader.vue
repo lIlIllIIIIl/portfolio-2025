@@ -31,6 +31,7 @@ header {
 
   @media (max-width: 1024px) {
     width: 100vw;
+    margin-left: 5vw;
   }
 
   img {

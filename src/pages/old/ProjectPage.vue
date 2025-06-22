@@ -255,11 +255,23 @@ body {
   overflow: hidden;
   border-top: 1px solid var(--color-text);
 
+  @media (max-width: 1024px) {
+    overflow: scroll;
+    flex-direction: column;
+    width: auto;
+  }
+
   .project-informations {
     display: flex;
     flex-direction: column;
     width: 32vw;
     margin-right: 10vw;
+
+    @media (max-width: 1024px) {
+      width: 100%;
+      margin-right: 0;
+      padding: 4vh 6vw;
+    }
 
     h1 {
       line-height: 60px;
@@ -293,6 +305,16 @@ body {
       height: 100%;
       width: max-content;
       z-index: 10;
+
+      @media (max-width: 1024px) {
+        flex-direction: column;
+        align-items: flex-start;
+        width: auto;
+
+        img {
+          width: -webkit-fill-available;
+        }
+      }
 
       .project-image {
         height: 100%;
@@ -348,6 +370,14 @@ body {
         width: 100vw;
         height: 1px;
         background-color: var(--color-text);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      border: none;
+
+      a {
+        width: auto;
       }
     }
   }
