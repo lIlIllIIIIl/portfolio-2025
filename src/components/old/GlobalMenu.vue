@@ -75,6 +75,11 @@ function toggleMenu() {
   &.open {
     width: 26vw;
 
+    .menu-link {
+      opacity: 1 !important;
+      transition-duration: 1s;
+    }
+
     @media (max-width: 1024px) {
       width: 46vw;
     }
@@ -120,6 +125,8 @@ function toggleMenu() {
 
       .menu-link {
         position: relative;
+        opacity: 0;
+        transition-duration: 1s;
 
         &:hover {
           cursor: pointer;

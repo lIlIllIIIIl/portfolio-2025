@@ -57,7 +57,8 @@ onUnmounted(() => {
       </span>
 
       <h1 @click="copyMail" @mouseenter="showCopy = true" @mouseleave="showCopy = false">
-        alexis.kessab@gmail.com
+        <span> alexis.kessab </span>
+        <span> @gmail.com </span>
       </h1>
     </div>
   </div>
@@ -78,6 +79,10 @@ onUnmounted(() => {
     .contact-paragraph {
       max-width: 500px;
       text-transform: uppercase;
+
+      @media (max-width: 1024px) {
+        max-width: 280px;
+      }
     }
   }
 

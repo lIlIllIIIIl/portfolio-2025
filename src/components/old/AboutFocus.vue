@@ -207,6 +207,12 @@ watch(
     gap: 16px;
     margin-bottom: 2vh;
     opacity: 0;
+
+    @media (max-width: 1024px) {
+      h1 {
+        font-size: 60px;
+      }
+    }
   }
 
   .focus-informations {
@@ -220,6 +226,11 @@ watch(
       display: inline-table;
       height: 380px;
       width: 279px;
+
+      @media (max-width: 1024px) {
+        width: 88px;
+        height: 120px;
+      }
 
       img.focus-image {
         height: 380px;
@@ -238,6 +249,11 @@ watch(
           -webkit-mask-position: 0%;
           z-index: 1;
         }
+
+        @media (max-width: 1024px) {
+          width: 88px;
+          height: 120px;
+        }
       }
     }
 
@@ -250,6 +266,14 @@ watch(
         max-width: 26vw;
         opacity: 0;
       }
+
+      @media (max-width: 1024px) {
+        height: 120px;
+
+        p {
+          max-width: 48vw;
+        }
+      }
     }
   }
 
@@ -258,6 +282,12 @@ watch(
     flex-direction: row;
     flex-wrap: wrap;
     gap: 8px;
+
+    @media (max-width: 1024px) {
+      margin-top: 20vh;
+      flex-wrap: nowrap;
+      overflow-x: scroll;
+    }
 
     img {
       transition-duration: 0.4s;
