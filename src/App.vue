@@ -96,6 +96,7 @@ const route = useRoute()
 
     @media (max-width: 1024px) {
       margin-left: 5vw;
+      width: auto;
     }
 
     .header-icon {

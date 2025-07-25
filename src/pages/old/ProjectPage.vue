@@ -370,6 +370,10 @@ body {
         width: 100vw;
         height: 1px;
         background-color: var(--color-text);
+
+        @media (max-width: 1024px) {
+          width: auto;
+        }
       }
     }
 

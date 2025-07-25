@@ -209,6 +209,8 @@ watch(
     opacity: 0;
 
     @media (max-width: 1024px) {
+      margin-left: 2vw;
+
       h1 {
         font-size: 60px;
       }

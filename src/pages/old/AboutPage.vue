@@ -136,7 +136,9 @@ function focusInterest(interest) {
 
   @media (max-width: 1024px) {
     margin-top: 5vh;
+    margin-left: 6vw;
     flex-direction: column;
+    align-items: flex-start;
   }
 
   .interests-container {

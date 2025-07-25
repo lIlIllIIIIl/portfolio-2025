@@ -38,6 +38,10 @@ onMounted(() => {
   justify-content: center;
   gap: 56px;
 
+  @media (max-width: 1024px) {
+    margin-left: 6vw;
+  }
+
   .homepage-title {
     margin-top: 18vh;
 

@@ -71,6 +71,10 @@ onUnmounted(() => {
   gap: 100px;
   margin-top: 16vh;
 
+  @media (max-width: 1024px) {
+    margin-left: 6vw;
+  }
+
   .contact-main {
     display: flex;
     flex-direction: column;
