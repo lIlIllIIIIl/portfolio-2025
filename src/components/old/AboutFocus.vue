@@ -1,9 +1,9 @@
 <script setup>
+import { gsap } from 'gsap'
+
 import oldInterests from '@/store/oldInterests'
 
 import Cross from '@/assets/icons/Cross.vue'
-
-import { gsap } from 'gsap'
 
 const emit = defineEmits(['changeFocus'])
 const props = defineProps(['focus'])
@@ -158,7 +158,7 @@ watch(
           v-for="interest in oldInterests"
           class="focus-image"
           :key="interest.title"
-          :src="`/src/assets/images/interests/${interest.image}.jpg`"
+          :src="`/assets/images/interests/${interest.image}.jpg`"
           :class="focus?.title === interest.title ? '--current' : '--hidden'"
         />
       </div>
@@ -173,7 +173,7 @@ watch(
             v-for="interest in oldInterests"
             :class="currentTitle === interest.title ? '--current' : ''"
             :key="interest.title"
-            :src="`/src/assets/images/interests/${interest.image}.jpg`"
+            :src="`/assets/images/interests/${interest.image}.jpg`"
             @click="changeFocus(interest)"
           />
         </div>
@@ -185,7 +185,7 @@ watch(
         v-for="interest in oldInterests"
         :class="currentTitle === interest.title ? '--current' : ''"
         :key="interest.title"
-        :src="`/src/assets/images/interests/${interest.image}.jpg`"
+        :src="`/assets/images/interests/${interest.image}.jpg`"
         @click="changeFocus(interest)"
       />
     </div>
@@ -207,6 +207,14 @@ watch(
     gap: 16px;
     margin-bottom: 2vh;
     opacity: 0;
+
+    @media (max-width: 1024px) {
+      margin-left: 2vw;
+
+      h1 {
+        font-size: 60px;
+      }
+    }
   }
 
   .focus-informations {
@@ -220,6 +228,11 @@ watch(
       display: inline-table;
       height: 380px;
       width: 279px;
+
+      @media (max-width: 1024px) {
+        width: 88px;
+        height: 120px;
+      }
 
       img.focus-image {
         height: 380px;
@@ -238,6 +251,11 @@ watch(
           -webkit-mask-position: 0%;
           z-index: 1;
         }
+
+        @media (max-width: 1024px) {
+          width: 88px;
+          height: 120px;
+        }
       }
     }
 
@@ -250,6 +268,14 @@ watch(
         max-width: 26vw;
         opacity: 0;
       }
+
+      @media (max-width: 1024px) {
+        height: 120px;
+
+        p {
+          max-width: 48vw;
+        }
+      }
     }
   }
 
@@ -259,7 +285,14 @@ watch(
     flex-wrap: wrap;
     gap: 8px;
 
+    @media (max-width: 1024px) {
+      margin-top: 20vh;
+      flex-wrap: nowrap;
+      overflow-x: scroll;
+    }
+
     img {
+      transition-duration: 0.4s;
       max-height: 120px;
       opacity: 0.4;
 
@@ -268,6 +301,7 @@ watch(
       }
 
       &:hover {
+        transition-duration: 0s;
         opacity: 1;
       }
     }

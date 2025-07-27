@@ -8,6 +8,9 @@ import projects from '@/store/projects.json'
 
 let scroll
 
+const isAllImagesLoaded = ref(false)
+const loadedImagesCount = ref(0)
+
 onMounted(() => {
   scroll = new LocomotiveScroll({
     el: document.querySelector('[data-scroll-container]'),
@@ -24,7 +27,15 @@ onMounted(() => {
       gestureDirection: 'both',
     },
   })
+})
 
+onBeforeUnmount(() => {
+  if (scroll) {
+    scroll.destroy()
+  }
+})
+
+function launchAnimations() {
   const items = document.querySelectorAll('.fade-up')
   gsap.set(items, { opacity: 0, y: 100 })
 
@@ -35,17 +46,20 @@ onMounted(() => {
     ease: 'power3.out',
     stagger: 0.25,
   })
-})
+}
 
-onBeforeUnmount(() => {
-  if (scroll) {
-    scroll.destroy()
+function onImageLoad() {
+  loadedImagesCount.value++
+
+  if (loadedImagesCount.value === projects.length) {
+    isAllImagesLoaded.value = true
+    launchAnimations()
   }
-})
+}
 </script>
 
 <template>
-  <div class="workpage" data-scroll-container>
+  <div class="workpage" :class="{ hidden: !isAllImagesLoaded }" data-scroll-container>
     <section
       v-for="(project, index) in projects"
       :key="project.title"
@@ -53,7 +67,11 @@ onBeforeUnmount(() => {
       data-scroll
       data-scroll-section
     >
-      <img :src="`/src/assets/images/projects/${project.image}/cover.jpg`" class="fade-up" />
+      <img
+        @load="onImageLoad"
+        :src="`/assets/images/projects/${project.image}/cover.jpg`"
+        class="fade-up"
+      />
 
       <RouterLink
         class="fade-up"
@@ -141,5 +159,9 @@ html.has-scroll-smooth {
     pointer-events: none;
     background: transparent;
   }
+}
+
+.hidden {
+  opacity: 0;
 }
 </style>

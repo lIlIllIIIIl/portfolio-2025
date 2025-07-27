@@ -23,9 +23,12 @@
 
 /* semantic color variables for this project */
 :root {
-  --color-background: var(--vt-c-white);
-  --color-background-soft: var(--vt-c-white-soft);
-  --color-background-mute: var(--vt-c-white-mute);
+  // --color-background: var(--vt-c-white);
+  // --color-background-soft: var(--vt-c-white-soft);
+  // --color-background-mute: var(--vt-c-white-mute);
+    --color-background: var(--vt-c-black);
+    --color-background-soft: var(--vt-c-black-soft);
+    --color-background-mute: var(--vt-c-black-mute);
 
   --color-border: var(--vt-c-divider-light-2);
   --color-border-hover: var(--vt-c-divider-light-1);
@@ -79,12 +82,9 @@ a {
 
 @font-face{
 	font-family: EditorialNew;
-	src: url("./fonts/PPEditorialNew-Ultralight.woff2")
+	src: url("./fonts/EditorialNew-Ultralight.woff2")
 }
 
-// p, span, div {
-//   font-size: 15px;
-// }
 
 h1 {
   font-family: EditorialNew;

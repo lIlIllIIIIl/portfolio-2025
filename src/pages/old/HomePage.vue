@@ -23,7 +23,7 @@ onMounted(() => {
 
     <div class="homepage-description">
       <p class="paragraph">
-        Somewhere <span class="important">around the world</span>, available for
+        Currently somewhere <span class="important">around the world</span>, I'm still available for
         <span class="important">remote freelance</span>
         missions.
       </p>
@@ -38,8 +38,16 @@ onMounted(() => {
   justify-content: center;
   gap: 56px;
 
+  @media (max-width: 1024px) {
+    margin-left: 6vw;
+  }
+
   .homepage-title {
     margin-top: 18vh;
+
+    @media (max-width: 1024px) {
+      margin-top: 6vh;
+    }
 
     h1 {
       display: inline;
@@ -50,6 +58,10 @@ onMounted(() => {
     max-width: 34vw;
     color: white;
     text-transform: uppercase;
+
+    @media (max-width: 1024px) {
+      max-width: 60vw;
+    }
 
     .important {
       color: var(--color-text);

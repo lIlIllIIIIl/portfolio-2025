@@ -48,7 +48,7 @@ onUnmounted(() => {
     <div class="contact-mail">
       <span
         @mouseenter="showCopy = true"
-        @mouseleave="showCopy"
+        @mouseleave="showCopy = false"
         class="contact-copy"
         :class="showCopy ? 'show' : 'hide'"
         :style="{ top: mouseY + 'px', left: mouseX + 'px' }"
@@ -57,7 +57,8 @@ onUnmounted(() => {
       </span>
 
       <h1 @click="copyMail" @mouseenter="showCopy = true" @mouseleave="showCopy = false">
-        alexis.kessab@gmail.com
+        <span> alexis.kessab </span>
+        <span> @gmail.com </span>
       </h1>
     </div>
   </div>
@@ -70,6 +71,10 @@ onUnmounted(() => {
   gap: 100px;
   margin-top: 16vh;
 
+  @media (max-width: 1024px) {
+    margin-left: 6vw;
+  }
+
   .contact-main {
     display: flex;
     flex-direction: column;
@@ -78,6 +83,10 @@ onUnmounted(() => {
     .contact-paragraph {
       max-width: 500px;
       text-transform: uppercase;
+
+      @media (max-width: 1024px) {
+        max-width: 280px;
+      }
     }
   }
 

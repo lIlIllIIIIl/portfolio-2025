@@ -2,19 +2,49 @@
 import AboutFocus from '@/components/old/AboutFocus.vue'
 import oldInterests from '@/store/oldInterests'
 
+import { titleAnimation } from '@/composable/textAnimation'
+
 import { gsap } from 'gsap'
 
 import Splitting from 'splitting'
 
 const currentFocus = ref(null)
 
-function focusInterest(interest) {
-  //
-  const aboutContainer = document.querySelector('.about-container')
-  const aboutTitle = document.querySelector('.about-container h1')
-  const aboutInterestsContainer = document.querySelector('.about-container .interests-container')
+const isAllImagesLoaded = ref(false)
+const loadedImagesCount = ref(0)
+
+function launchAnimations() {
+  const title = document.querySelector('.title')
+  titleAnimation(title)
+
   const aboutInterests = document.querySelectorAll('.about-container .interests-container img')
 
+  gsap.set(aboutInterests, {
+    opacity: 0,
+    y: '200px',
+  })
+
+  gsap.to(aboutInterests, {
+    opacity: 1,
+    y: '0px',
+    stagger: 0.06,
+    duration: 0.4,
+  })
+}
+
+function onImageLoad() {
+  loadedImagesCount.value++
+
+  if (loadedImagesCount.value === Object.keys(oldInterests).length) {
+    isAllImagesLoaded.value = true
+    launchAnimations()
+  }
+}
+
+function focusInterest(interest) {
+  const aboutContainer = document.querySelector('.about-container')
+  const aboutTitle = document.querySelector('.about-container h1')
+  const aboutInterests = document.querySelectorAll('.about-container .interests-container img')
   const aboutFocus = document.querySelector('.about-focus')
 
   const tl = gsap.timeline()
@@ -77,21 +107,23 @@ function focusInterest(interest) {
 </script>
 
 <template>
-  <div class="about-container">
-    <h1>About me?</h1>
+  <div class="aboutpage" :class="{ hidden: !isAllImagesLoaded }">
+    <div class="about-container">
+      <h1 class="title">About me?</h1>
 
-    <div class="interests-container">
-      <img
-        v-for="interest in oldInterests"
-        :key="interest.title"
-        :src="`/src/assets/images/interests/${interest.image}.jpg`"
-        @click="focusInterest(interest)"
-      />
+      <div class="interests-container">
+        <img
+          v-for="interest in oldInterests"
+          :key="interest.title"
+          :src="`/assets/images/interests/${interest.image}.jpg`"
+          @load="onImageLoad"
+          @click="focusInterest(interest)"
+        />
+      </div>
     </div>
-  </div>
 
-  <AboutFocus :focus="currentFocus" @changeFocus="focusInterest" />
-  <!-- <AboutFocus :focus="currentFocus ?? oldInterests.ski" @changeFocus="focusInterest" /> -->
+    <AboutFocus :focus="currentFocus" @changeFocus="focusInterest" />
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -101,6 +133,13 @@ function focusInterest(interest) {
   align-items: center;
   margin-top: 16vh;
   gap: 24px;
+
+  @media (max-width: 1024px) {
+    margin-top: 5vh;
+    margin-left: 6vw;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
   .interests-container {
     display: flex;
@@ -120,5 +159,9 @@ function focusInterest(interest) {
   display: none;
 
   margin-top: 8vh;
+}
+
+.hidden {
+  opacity: 0;
 }
 </style>

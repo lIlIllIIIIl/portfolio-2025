@@ -1,11 +1,11 @@
 <script setup>
+import { gsap } from 'gsap'
+import LocomotiveScroll from 'locomotive-scroll'
+import 'locomotive-scroll/dist/locomotive-scroll.css'
+
 import { useRoute } from 'vue-router'
 
 import Arrow from '@/assets/icons/Arrow.vue'
-
-import LocomotiveScroll from 'locomotive-scroll'
-import 'locomotive-scroll/dist/locomotive-scroll.css'
-import { gsap } from 'gsap'
 
 import projects from '@/store/projects.json'
 
@@ -24,6 +24,9 @@ const nextProject = computed(() => {
 
 let scroll
 
+const isAllImagesLoaded = ref(false)
+const loadedImagesCount = ref(0)
+
 watch(
   () => route.query.project,
   async (newId, oldId) => {
@@ -33,7 +36,6 @@ watch(
 
     scroll.stop()
 
-    // Scroll vers le début AVANT de changer de projet
     scroll.scrollTo(0, {
       duration: 500,
       disableLerp: true,
@@ -94,42 +96,6 @@ watch(
 )
 
 onMounted(() => {
-  const container = document.querySelector('[data-scroll-container]')
-  const images = container.querySelectorAll('img')
-
-  let loaded = 0
-
-  function tryInit() {
-    scroll = new LocomotiveScroll({
-      el: container,
-      smooth: true,
-      direction: 'horizontal',
-      gestureDirection: 'both',
-      reloadOnContextChange: true,
-      multiplier: 0.8,
-      smartphone: {
-        direction: 'vertical',
-      },
-    })
-  }
-
-  images.forEach((img) => {
-    if (img.complete) {
-      loaded++
-    } else {
-      img.addEventListener('load', () => {
-        loaded++
-        if (loaded === images.length) {
-          tryInit()
-        }
-      })
-    }
-  })
-
-  if (loaded === images.length) {
-    tryInit()
-  }
-
   window.addEventListener('resize', () => {
     if (scroll) {
       scroll.update()
@@ -142,16 +108,86 @@ onBeforeUnmount(() => {
     scroll.destroy()
   }
 })
+
+function launchAnimations() {
+  const container = document.querySelector('[data-scroll-container]')
+
+  gsap.to(document.querySelector('.project-informations'), {
+    opacity: 0,
+    y: 50,
+    duration: 0.4,
+    ease: 'power2.out',
+    stagger: 0.1,
+  })
+
+  const firstImage = document.querySelector('.project-image')
+
+  if (firstImage) {
+    gsap.to(firstImage, {
+      opacity: 0,
+      y: 50,
+      duration: 0.3,
+      ease: 'power2.out',
+    })
+  }
+
+  const newFirstImage = document.querySelector('.project-image')
+  if (newFirstImage) {
+    gsap.fromTo(
+      newFirstImage,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.4,
+        ease: 'power2.out',
+      },
+    )
+  }
+
+  gsap.fromTo(
+    document.querySelector('.project-informations'),
+    { opacity: 0, y: 50 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: 'power2.out',
+      stagger: 0.1,
+    },
+  )
+
+  scroll = new LocomotiveScroll({
+    el: container,
+    smooth: true,
+    direction: 'horizontal',
+    gestureDirection: 'both',
+    reloadOnContextChange: true,
+    multiplier: 0.8,
+    smartphone: {
+      direction: 'vertical',
+    },
+  })
+}
+
+function onImageLoad() {
+  loadedImagesCount.value++
+
+  if (loadedImagesCount.value === 7) {
+    isAllImagesLoaded.value = true
+    launchAnimations()
+  }
+}
 </script>
 
 <template>
-  <div class="project-container">
+  <div class="project-container" :class="{ hidden: !isAllImagesLoaded }">
     <div class="project-informations">
       <h1>
         {{ projectData.title }}
       </h1>
 
-      <a>VISIT WEBSITE</a>
+      <a v-if="projectData.link" :href="projectData.link">VISIT WEBSITE</a>
 
       <div class="project-details">
         <span>COMPLETED: {{ projectData.date }}</span>
@@ -170,7 +206,8 @@ onBeforeUnmount(() => {
           v-for="i in 7"
           :key="i"
           class="project-image"
-          :src="`/src/assets/images/projects/${projectData.image}/${i}.jpg`"
+          :src="`/assets/images/projects/${projectData.image}/${i}.jpg`"
+          @load="onImageLoad"
         />
 
         <div class="project-next">
@@ -218,11 +255,23 @@ body {
   overflow: hidden;
   border-top: 1px solid var(--color-text);
 
+  @media (max-width: 1024px) {
+    overflow: scroll;
+    flex-direction: column;
+    width: auto;
+  }
+
   .project-informations {
     display: flex;
     flex-direction: column;
     width: 32vw;
     margin-right: 10vw;
+
+    @media (max-width: 1024px) {
+      width: 100%;
+      margin-right: 0;
+      padding: 4vh 6vw;
+    }
 
     h1 {
       line-height: 60px;
@@ -245,6 +294,7 @@ body {
   .project-scroll-wrapper {
     position: relative;
     height: 100%;
+    min-height: 100%;
     width: 100%;
     z-index: 200;
 
@@ -255,7 +305,16 @@ body {
       height: 100%;
       width: max-content;
       z-index: 10;
-      // margin-left: 48vw;
+
+      @media (max-width: 1024px) {
+        flex-direction: column;
+        align-items: flex-start;
+        width: auto;
+
+        img {
+          width: -webkit-fill-available;
+        }
+      }
 
       .project-image {
         height: 100%;
@@ -311,8 +370,24 @@ body {
         width: 100vw;
         height: 1px;
         background-color: var(--color-text);
+
+        @media (max-width: 1024px) {
+          width: auto;
+        }
+      }
+    }
+
+    @media (max-width: 1024px) {
+      border: none;
+
+      a {
+        width: auto;
       }
     }
   }
+}
+
+.hidden {
+  opacity: 0;
 }
 </style>

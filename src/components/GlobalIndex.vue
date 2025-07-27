@@ -33,6 +33,10 @@
   top: 0;
   right: 0;
 
+  @media (max-width: 1024px) {
+    display: none;
+  }
+
   .index-items {
     height: 100vh;
     width: 12vw;

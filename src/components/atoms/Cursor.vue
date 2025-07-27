@@ -60,7 +60,7 @@ onMounted(() => {
 
 <style lang="scss">
 .cursor {
-  z-index: 10000;
+  z-index: 100000;
   position: absolute;
   // mix-blend-mode: difference;
   width: 25px;
@@ -69,5 +69,9 @@ onMounted(() => {
   pointer-events: none;
   // background: white;
   // scale: 1;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
 }
 </style>

@@ -28,7 +28,14 @@ const route = useRoute()
       </RouterLink>
     </header>
 
-    <RouterView />
+    <Transition
+      name="fade-page"
+      mode="out-in"
+      @after-enter="handleAfterEnter"
+      @before-leave="handleBeforeLeave"
+    >
+      <RouterView />
+    </Transition>
 
     <GlobalMenuOld />
   </div>
@@ -49,9 +56,7 @@ const route = useRoute()
 <style lang="scss">
 .page-container {
   height: 100vh;
-  //
   overflow: hidden;
-  // cursor: none;
 
   header {
     width: 100%;
@@ -80,10 +85,19 @@ const route = useRoute()
 
   overflow-y: hidden;
 
+  @media (max-width: 1024px) {
+    margin-left: 0;
+  }
+
   header {
     width: 100%;
     height: 10vh;
     border-bottom: 1px solid white;
+
+    @media (max-width: 1024px) {
+      margin-left: 5vw;
+      width: auto;
+    }
 
     .header-icon {
       max-width: 30px;

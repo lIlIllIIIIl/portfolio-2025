@@ -13,10 +13,10 @@
     {
         "id": "artchive",
         "title": "Artchive",
-        "date": "december 2021 (1st part)",
+        "date": "not finished yet",
         "role": "fullstack developer",
-        "team": "",
-        "desc": "lorem ipsum sit data met",
+        "team": "me, myself and I",
+        "desc": "Artchive is a personal project I imagined a few years ago. I am following a lot of artists on Tweeter and I gathered a lot of drawings & illustrations throught years. I wanted to create a place to display all of them.",
         "image": "artchive",
         "link": "",
         "size": "7"
@@ -24,10 +24,10 @@
     {
         "id": "pimpim",
         "title": "PimPim's adventure",
-        "date": "december 2021 (1st part)",
-        "role": "fullstack developer",
-        "team": "",
-        "desc": "lorem ipsum sit data met",
+        "date": "december 2021",
+        "role": "unity developer (C#)",
+        "team": "Chris Francisco, Elise Vue, Yann Quillard",
+        "desc": "PimPim’s adventure is a video game created with Unity. You play PimPim, a penguin who has to go through all four seasons to finally reach winter and his home.",
         "image": "pimpim",
         "link": "",
         "size": "7"
@@ -38,19 +38,19 @@
         "date": "december 2021 (1st part)",
         "role": "fullstack developer",
         "team": "",
-        "desc": "lorem ipsum sit data met",
+        "desc": "Cf.doc is the final school I did at HETIC.",
         "image": "cf",
         "link": "",
         "size": "7"
     },
     {
-        "id": "aurora",
-        "title": "Aurora",
+        "id": "aurore",
+        "title": "Aurore",
         "date": "december 2021 (1st part)",
         "role": "fullstack developer",
         "team": "",
-        "desc": "lorem ipsum sit data met",
-        "image": "aurora",
+        "desc": "Aurore is a low-code school project. It is a platform that allows you to rent house and apartments designed by architects and interior designers.",
+        "image": "aurore",
         "link": "",
         "size": "7"
     },
@@ -60,7 +60,7 @@
         "date": "december 2021 (1st part)",
         "role": "fullstack developer",
         "team": "",
-        "desc": "lorem ipsum sit data met",
+        "desc": "Inès' portfolio.",
         "image": "ines",
         "link": "",
         "size": "7"
